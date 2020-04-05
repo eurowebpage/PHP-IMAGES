@@ -1,0 +1,19 @@
+<?php
+/*---------------------------------------------------------------*/
+Definir la taille maximum de l'images
+/*---------------------------------------------------------------*/
+ function reduce($image){
+ $taille = getimagesize("$image"); 
+ $max=300;//taille max autorisée en pixels 
+  $h_i = $taille[1]; 
+  $w_i = $taille[0]; 
+  if($w_i >$max) 
+  { 
+  $convert=$max/$w_i; 
+  $w_i=$max; 
+  $h_i=ceil($h_i*$convert); 
+  } 
+ echo"<img src=\"$image\" height=\"$h_i\" width=\"$w_i\">"; 
+}
+
+?>
