@@ -1,0 +1,22 @@
+<?php
+/*---------------------------------------------------------------*/
+'@' est placé devant la fonction getImageSize()pour empêcher l'affichagedes erreurs si l'image est absente.
+
+/*---------------------------------------------------------------*/
+
+  $chemin = '';  // chemin de l'image
+  $infos_image = @getImageSize($chemin); // info sur la dimension de l'image    
+   //dimension 
+   $largeur = $infos_image[0]; // largeur de l'image
+   $hauteur = $infos_image[1]; // hauteur de l'image
+   $type    = $infos_image[2]; // Type de l'image
+   $html    = $infos_image[3]; // info html de type width="468" height="60"
+
+  echo $largeur; // affiche la hauteur
+  echo $hauteur; // affiche la largeur
+  echo $type; // Type de l'image 1 = GIF, 2 = JPG,3 = PNG, 4 = SWF, 5 = PSD,
+              // 6 = BMP, 7 = TIFF, 8 = TIFF, 9 = JPC, 10 = JP2, 11 = JPX,
+              // 12 = JB2, 13 = SWC, 14 = IFF....
+  echo '<img src="'.$chemin.'" alt="Exemple de getimagesize()" '.$html.' />';
+
+?>
