@@ -1,0 +1,34 @@
+<?php
+/*---------------------------------------------------------------*/
+  Redimensionner une image sans distorsion                                                                      
+/*---------------------------------------------------------------*/
+
+    function Resize_picture($fichier,$maxWidth,$maxHeight)
+    {
+    # Passage des paramètres dans la table : imageinfo
+    $imageinfo= getimagesize("$fichier");
+    $iw=$imageinfo[0];
+    $ih=$imageinfo[1];
+    # Paramètres : Largeur et Hauteur souhaiter $maxWidth, $maxHeight
+    # Calcul des rapport de Largeur et de Hauteur
+    $widthscale = $iw/$maxWidth;
+    $heightscale = $ih/$maxHeight;
+    $rapport = $ih/$widthscale;
+    # Calul des rapports Largeur et Hauteur à afficher
+    if($rapport < $maxHeight)
+        {$nwidth = $maxWidth;}
+     else
+        {$nwidth = $iw/$heightscale;}
+     if($rapport < $maxHeight)
+        {$nheight = $rapport;}
+     else
+        {$nheight = $maxHeight;}
+
+    # Affichage
+    echo " <img src=$fichier width=\"$nwidth\" height=\"$nheight\">";
+    }
+?>
+
+<?php
+    Resize_picture("img.jpg",10,10);
+?>
