@@ -1,6 +1,6 @@
 <?php
 /*---------------------------------------------------------------*/
-  Redimensionner une image sans distorsion                                                                      
+  Redimensionner une image sans distorsion   function Resize_picture                                                                  
 /*---------------------------------------------------------------*/
 
     function Resize_picture($fichier,$maxWidth,$maxHeight)
